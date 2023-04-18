@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+img {
+  height: fit-content;
+  width: 100%;
+}
+
+.page {
+  height: 100vh;
+  width: 100%;
+  background: #404040;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.page .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 90vh;
+  width: 90%;
+  background-image: url(./images/fundo.svg);
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+.rows {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: 
+    'A B C D'
+  ;
+  display: grid;
+  margin: 0 auto;
+  gap: 4.2rem;
+}
+
+.table {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: 
+    'rowA'
+    'rowB'
+    'rowC'
+  ;
+  max-width: 55%;
+  gap: 3.2rem;
+  position: fixed;
+}
+
+.rowElement {
+  position: relative;
+  z-index: 1;
+}
+
+.toupeira {
+  top: 0;
+  left: 0;
+  animation: toupeira;
+  position: absolute;
+  z-index: 10;
+}
+
+.buraco1 .toupeira {
+  animation-delay: 6s;
+  animation-duration: 900ms;
+}
+
+.buraco2 .toupeira {
+  animation-delay: 1s;
+  animation-duration: 600ms;
+}
+
+.buraco3 .toupeira {
+  animation-delay: 3s;
+  animation-duration: 700ms;
+}
+
+.rowA {
+  grid-area: rowA;
+}
+
+.rowB {
+  grid-area: rowB;
+}
+
+.rowC {
+  grid-area: rowC;
+}
+
+.rows > div:nth-child(1) {
+  grid-area: A;
+}
+
+.rows > div:nth-child(2) {
+  grid-area: B;
+}
+
+.rows > div:nth-child(3) {
+  grid-area: C;
+}
+
+.rows > div:nth-child(4) {
+  grid-area: D;
+}
+
+
+@keyframes toupeira {
+  0% {
+    content: url(./images/toupeira1.svg);
+  }
+
+  20% {
+    content: url(./images/toupeira2.svg);
+  }
+
+  40% {
+    content: url(./images/toupeira3.svg);
+  }
+
+  60% {
+    content: url(./images/toupeira4.svg);
+  }
+
+  80% {
+    content: url(./images/toupeira5.svg);
+  }
+
+  100% {
+    content: url(./images/toupeira6.svg);
+  }
+}
+
+@media (min-width: 1350px) {
+  .table {
+    max-width: 50%;
+    margin-top: 10rem;
+  }
+}
